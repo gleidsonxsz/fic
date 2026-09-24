@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Areas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>Áreas</h1>
+    <p>Cadastrar</p>
+    <p>Lista de Áreas</p>
+    {% for area in lista_areas %}
+    <p>{{ area.id }} {{ area.nome }}</p>
+    {% empty %}
+    <p>Nenhuma área cadastrada</p>
+    {% endfor %}
+    <p><a href="{% url 'inicial' %}">Voltar</a></p>
+</body>
+</html>
