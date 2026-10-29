@@ -20,6 +20,8 @@ from core.views import *
 
 urlpatterns = [
     path('', inicial, name= 'inicial'),
+    path('autenticar/', autenticar, name='autenticar'),
+    path('perfil/', perfil, name='perfil'),
     path('admin/', admin.site.urls), 
     path('area_cadastro/', area_cadastro, name='area_cadastro'),
     path('area_editar/<int:id>/', area_editar, name='area_editar'),

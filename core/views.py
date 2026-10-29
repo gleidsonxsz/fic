@@ -1,7 +1,25 @@
 from django.shortcuts import render, redirect
 from .models import Area, Publico, Curso
 from .forms import AreaForm
+from django.contrib.auth import authenticate, login
 
+
+
+def autenticar(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('perfil')
+        else:
+            return render(request, 'login.html')
+    return render(request, 'login.html')
+
+def perfil(request):
+    return render(request, 'perfil.html')
 
 def inicial(request):
     return render(request, 'index.html')
